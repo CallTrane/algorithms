@@ -1,5 +1,3 @@
-import com.sun.xml.internal.fastinfoset.util.StringArray;
-
 import java.util.Arrays;
 
 /**
