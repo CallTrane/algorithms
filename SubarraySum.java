@@ -4,6 +4,7 @@ import java.util.Map;
 /**
  * @className: SubarraySum
  * @description: 剑指 Offer II 010. 和为 k 的子数组
+ *               560. 和为 K 的子数组
  * @author: Carl Tong
  * @date: 2022/4/25 19:05
  */
