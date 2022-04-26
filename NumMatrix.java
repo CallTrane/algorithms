@@ -20,7 +20,7 @@ public class NumMatrix {
     }
 
     public int sumRegion(int row1, int col1, int row2, int col2) {
-        // 因为前缀和数组new是 +1 的
+        // 跟(row2, col2)坐标有关的应该+1，覆盖到；跟(row1, col1)有关的不能+1，不然会缺少数据
         return preSum[row2 + 1][col2 + 1] - preSum[row2 + 1][col1] - preSum[row1][col2 + 1] + preSum[row1][col1] ;
     }
 }
