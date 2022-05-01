@@ -8,7 +8,7 @@ public class ConstructQuadTree {
 
     /*public Node construct(int[][] grid) {
 
-    }
+    }*/
 
     class Node {
         public boolean val;
@@ -45,5 +45,5 @@ public class ConstructQuadTree {
             this.bottomLeft = bottomLeft;
             this.bottomRight = bottomRight;
         }
-    }*/
+    }
 }
