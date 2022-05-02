@@ -23,31 +23,35 @@ public class BuildTree_2 {
         }
     }
 
-    HashMap<Integer, Integer> inOrder;
+    // 题目说二叉树节点的值不存在重复，所以可以使用一个 HashMap 存储元素到索引的映射
+    Map<Integer, Integer> inOrderIndex;
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if (inorder.length != postorder.length) {
-            return null;
-        }
-        inOrder = new HashMap() ;
+        if (inorder.length != postorder.length) return null;
+        // 存储中序遍历的索引
+        inOrderIndex = new HashMap<>();
         for (int i = 0; i < inorder.length; i++) {
-            inOrder.put(inorder[i], i);
+            inOrderIndex.put(inorder[i], i);
         }
-        return buildTree(postorder, 0, postorder.length-1,
-                inOrder, 0, inorder.length-1);
+        return buildTree(inorder, 0, inorder.length - 1, postorder, 0, postorder.length - 1);
     }
 
-    private TreeNode buildTree(int[] postorder, int postLeft, int postRight,
-                               Map<Integer, Integer> inOrder, int inLeft, int inRight) {
-        if (inLeft > inRight || postLeft > postRight) {
-            return null;
-        }
-        int rootVal = postorder[postRight];
+    private TreeNode buildTree(int[] inorder, int inStart, int inEnd,
+                               int[] postorder, int postStart, int postEnd) {
+        // 递归终止条件
+        if (inStart > inEnd || postStart > postEnd) return null;
+        // 确定根的值
+        int rootVal = postorder[postEnd];
+        // 中序遍历中的索引位
+        int index = inOrderIndex.get(rootVal);
+        // 右子树的节点数量
+        int rightSize = inEnd - index;
+        // 构建
         TreeNode root = new TreeNode(rootVal);
-        //inRight - (index+1) = (postRight-1) - x
-        int index = inOrder.get(rootVal);
-        root.left = buildTree(postorder, postLeft, postRight+index-inRight-1, inOrder, inLeft, index-1);
-        root.right = buildTree(postorder, postRight+index-inRight, postRight-1, inOrder, index+1, inRight);
+        // 确定范围
+        root.right = buildTree(inorder, index + 1, inEnd, postorder, postEnd - rightSize, postEnd - 1);
+        root.left = buildTree(inorder, inStart, index - 1, postorder, postStart, postEnd - rightSize - 1);
         return root;
     }
+
 }
