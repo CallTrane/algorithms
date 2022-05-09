@@ -97,8 +97,8 @@ public class TrieMap<V> {
      */
     public void remove(String key) {
         if (!containsKey(key)) return;
-        size--;
         root = remove(root, 0, key);
+        size--;
     }
 
     /**
