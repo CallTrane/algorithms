@@ -36,16 +36,16 @@ public class TrieMap<V> {
     private TrieNode<V> root = null;
 
     /**
-     * 工具函数 : 从节点 node 开始，根据前缀(树枝)搜索键节点，如果存在返回对应节点，否则返回 null
+     * 工具函数 : 从节点 node 开始，沿着前缀(树枝)搜索键节点，如果存在返回对应节点，否则返回 null
      */
-    private TrieNode<V> getNode(TrieNode<V> node, String prefix) {
+    private TrieNode<V> getNode(TrieNode<V> node, String key) {
         TrieNode<V> p = node;
         // 对每个字符进行匹配
-        for (int i = 0; i < prefix.length(); i++) {
+        for (int i = 0; i < key.length(); i++) {
             // 如果为null，则无法向下搜索
             if (p == null) return null;
             // 否则，继续向下搜索
-            char c = prefix.charAt(i);
+            char c = key.charAt(i);
             p = p.children[c];
         }
         return p;
