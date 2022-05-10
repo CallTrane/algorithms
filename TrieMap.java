@@ -38,7 +38,7 @@ public class TrieMap<V> {
     /**
      * 工具函数 : 从节点 node 开始搜索前缀(树枝)，如果存在返回对应节点，否则返回 null
      */
-    private TrieNode<V> getNode(TrieNode<V> node, String prefix) {
+    private TrieNode<V> get(TrieNode<V> node, String prefix) {
         TrieNode<V> p = node;
         // 对每个字符进行匹配
         for (int i = 0; i < prefix.length(); i++) {
@@ -131,14 +131,14 @@ public class TrieMap<V> {
     }
 
     /**
-     * 获取 key 对应的值，不存在则返回 null
+     * 获取键 key 对应的值，如果树枝不存在或键不存在，则返回 null
      *
      * @param key 键
      */
-    public V get(String key) {
+    public V getNode(String key) {
         // 从 root 开始搜索键（结点）
         // 需要注意，就算 getNode(key) 的返回值 node 非空，也只能说字符串 key 是一个「前缀」；除非 node.value 同时非空，才能判断键 key 存在（也就是说，有前缀不一定有key）
-        TrieNode<V> node = getNode(root, key);
+        TrieNode<V> node = get(root, key);
         // 如果 node 为空（没有前缀）或者 value 字段为空（没有结点），说明没有对应的键（结点，即key）
         if (node == null || node.value == null) return null;
         return node.value;
@@ -151,7 +151,7 @@ public class TrieMap<V> {
      */
     public boolean containsKey(String key) {
         // 有前缀不一定有 key
-        return get(key) != null;
+        return getNode(key) != null;
     }
 
     /**
@@ -159,7 +159,7 @@ public class TrieMap<V> {
      */
     public boolean hasKeyWithPrefix(String prefix) {
         // 这里是只判断是否存在前缀，不是key（区别于containsKey）
-        return getNode(root, prefix) != null;
+        return get(root, prefix) != null;
     }
 
     /**
@@ -168,7 +168,7 @@ public class TrieMap<V> {
     public List<String> keysWithPrefix(String prefix) {
         List<String> res = new ArrayList<>();
         // 先找到该前缀的结点
-        TrieNode<V> node = getNode(root, prefix);
+        TrieNode<V> node = get(root, prefix);
         // 结点不为空，说明存在该前缀，回溯遍历所有字符（否则跳过，返回结束）
         if (node != null) traverse(node, new StringBuilder(prefix), res);
         return res;
