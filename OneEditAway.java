@@ -17,7 +17,7 @@ public class OneEditAway {
                 i++; j++;
             } else {
                 if (!canEdit) return false;
-                // 如果长度相同做修改，同时移动，否则短的不用移动
+                // 如果长度相同做修改，同时移动，否则短的不用移动（必须添加一个字符使得长度一致才有可能相等）
                 if (n == m) i++;
                 j++; canEdit = false;
             }
