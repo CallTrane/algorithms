@@ -21,7 +21,7 @@ public class MapSum {
 
     public int sum(String prefix) {
         List<String> keys = TRIE_MAP.keysWithPrefix(prefix);
-        return keys.stream().map(key -> TRIE_MAP.get(key)).reduce(0, Integer::sum);
+        return keys.stream().mapToInt(key -> TRIE_MAP.get(key)).sum();
     }
 
     private class TrieMap<V> {
