@@ -8,40 +8,33 @@ import java.util.*;
  */
 public class PermuteUnique {
     public List<List<Integer>> permuteUnique(int[] nums) {
-        int length = nums.length;
-        if (length <= 0 || nums == null) {
-            return null;
-        }
+        List<List<Integer>> ret = new ArrayList<>();
+        // 回溯路径
+        LinkedList<Integer> track = new LinkedList<>();
+        // 排列需要的辅助数组
+        boolean[] used = new boolean[nums.length];
+        // 先进行排序，让相同的元素靠在一起，如果发现 candidates[i] == candidates[i-1]，则跳过
         Arrays.sort(nums);
-        List<List<Integer>> result = new ArrayList();
-        Deque<Integer> path = new ArrayDeque();
-        boolean[] used = new boolean[length];
-
-        dfs(nums, 0, path, result, used);
-        return result;
+        track(nums, used, track, ret);
+        return ret;
     }
 
-    void dfs(int[] nums, int depth, Deque<Integer> path, List<List<Integer>> result, boolean[] used) {
-        if (depth == nums.length) {
-            result.add(new ArrayList(path));
+    private void track(int[] nums, boolean[] used, LinkedList<Integer> track, List<List<Integer>> ret) {
+        if (track.size() == nums.length) {
+            ret.add(new LinkedList<>(track));
             return;
         }
         for (int i = 0; i < nums.length; i++) {
-            if (used[i]) {
-                continue;
-            }
-            /**
-             * i > 0 ：为了让nums[i-1]有意义
-             * nums[i] == nums[i-1] && !used[i] ：上一个元素相同，且被撤销（说明下一组相同，直接剪枝）
-             */
-            if (i > 0 && nums[i] == nums[i-1] && !used[i-1]) {
-                continue;
-            }
-            path.addLast(nums[i]);
-            used[i] = true;
-            dfs(nums, depth+1, path, result, used);
-            used[i] = false;
-            path.removeLast();
+            if (used[i]) continue;
+            // i > 0，是为了避免跳过第一个元素； nums[i] == nums[i - 1] 是剪枝逻辑，只遍历第一条同时跳过其他相同元素的
+            // 加上 !used[i - 1] 是为了避免上一个相同元素拿了，下一个元素拿不到（比如 1 2 2，拿了 1 2 之后需要继续拿到2）
+            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;
+            // 做选择
+            track.addLast(nums[i]); used[i] = true;
+            // 回溯
+            track(nums, used, track, ret);
+            // 撤销选择
+            track.removeLast(); used[i] = false;
         }
     }
 }
