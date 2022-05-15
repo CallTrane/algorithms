@@ -1,8 +1,10 @@
+package 回溯;
+
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @className: CombinationSum
+ * @className: 回溯.CombinationSum
  * @description: 39. 组合总和
  * @author: Carl Tong
  * @date: 2022/5/15 10:52
