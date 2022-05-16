@@ -1,8 +1,10 @@
+package 树.二叉树;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @className: BTreeAllPath
+ * @className: 树.二叉树.BTreeAllPath
  * @description: 257. 二叉树的所有路径
  * @author: carl
  * @date: 2021/8/17 22:05
