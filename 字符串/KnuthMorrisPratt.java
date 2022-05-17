@@ -1,5 +1,7 @@
+package 字符串;
+
 /**
- * @className: KnuthMorrisPratt
+ * @className: 字符串.KnuthMorrisPratt
  * @description: KMP算法
  * @author: Carl Tong
  * @date: 2022/3/5 20:03
