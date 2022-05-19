@@ -33,7 +33,7 @@ public class BFPRT {
      * @param arr The array from which select.
      * @param p   The start index of the sub-array from which select.
      * @param r   The end index of the sub-array from which select.
-     * @param k   The order of the element to be selected.
+     * @param k   The k smallest
      *            <p>for example: if int[] arr = new int[]{1,2,3,4,5,6}, k ranges from 0 to 5</p>
      * @return The k smallest element
      */
@@ -43,7 +43,7 @@ public class BFPRT {
         // arr[pivotRange[0], ..., pivotRange[1]] = pivot
         int[] pivotRange = partition(arr, p, r, pivot);
         // If topK is in pivot range, then pivot is the answer
-        if (p + k >= pivotRange[0] && p + k <= pivotRange[1]) return pivot;
+        if (p + k >= pivotRange[0] && p + k <= pivotRange[1]) return pivot; // also arr[pivotRange[0]] = pivot
         else if (p + k < pivotRange[0]) return bfprt(arr, p, pivotRange[0] - 1, k);
         else return bfprt(arr, pivotRange[1] + 1, r, k - (pivotRange[1] - p + 1));
     }
