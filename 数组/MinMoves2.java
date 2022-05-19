@@ -13,11 +13,7 @@ public class MinMoves2 {
     public int minMoves2(int[] nums) {
         // target 必须是不断选择数组（及子数组）最大值、最小值之间的数字，最终就是「中位数」
         int target = BFPRT.bfprt(nums, 0, nums.length - 1, nums.length / 2);
-        int ret = 0;
-        for (int num : nums) {
-            ret += Math.abs(num - target);
-        }
-        return ret;
+        return Arrays.stream(nums).reduce(0, (a, b) -> a + Math.abs(b - target));
     }
 
     static class BFPRT {
