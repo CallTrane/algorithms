@@ -117,10 +117,3 @@ public class BFPRT {
         arr[b] = tmp;
     }
 }
-
-class TestBFPRT {
-    public static void main(String[] args) {
-        BFPRT bfprt = new BFPRT();
-        System.out.println(bfprt.bottomK(new int[]{1, 2, 3, 4, 5, 6}, 1));
-    }
-}
