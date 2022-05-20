@@ -100,7 +100,7 @@ public class BFPRT {
         for (int i = p; i <= r; i++) {
             if (arr[i] < pivot) {
                 small++;
-                // If the element value of pivot was found before, arr[small] is pivot now, so move it to the middle
+                // If the element value of pivot was found before. Before swap, arr[small] = pivot, arr[small + equal] > pivot
                 if (equal > 0) swap(arr, small, small + equal);
                 swap(arr, small, i);
             } else if (arr[i] == pivot) {
