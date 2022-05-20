@@ -39,6 +39,7 @@ public class BFPRT {
      */
     private int bfprt(int[] arr, int p, int r, int k) {
         if (p == r) return arr[p];
+        // It is mutual recursion.
         int pivot = medianOfMedians(arr, p, r);
         // arr[pivotRange[0], ..., pivotRange[1]] = pivot
         int[] pivotRange = partition(arr, p, r, pivot);
@@ -64,7 +65,7 @@ public class BFPRT {
             int start = p + i * 5, end = Math.min(start + 4, r);
             medians[i] = computeMedian(arr, start, end);
         }
-        // Recursive call select(bfprt), return the median of the medians.
+        // It is mutual recursion. so recursive call select(bfprt), return the median of the medians.
         return bfprt(medians, 0, medians.length - 1, medians.length / 2);
     }
 
