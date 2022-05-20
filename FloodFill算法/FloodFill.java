@@ -54,7 +54,7 @@ public class FloodFill {
         for (int[] dir : dirs) surround += boundaryFill(image, visited, x + dir[0], y + dir[1], oldColor, newColor, threshold);
         // 如果不为4，说明是边界，需要换颜色
         if (surround < 4) image[x][y] = newColor;
-        // 该点为上色点，需要给回调返回1
+        // 该点遍历完，需要给回调返回1
         return 1;
     }
 
