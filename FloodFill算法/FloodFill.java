@@ -43,7 +43,7 @@ public class FloodFill {
     private int boundaryFill(int[][] image, boolean[][] visited, int x, int y, int oldColor, int newColor, int threshold) {
         // 1、必须先判断边界（防止下标越界）
         if (!inArea(image, x, y)) return 0;
-        // 2、接着判断是否已经访问过（防止边界坐标换颜色后，如果先判断颜色，则会导致内部区域判断错误）
+        // 2、接着判断是否已经访问过（防止边界坐标换颜色后，其他坐标先判断颜色，则会导致内部区域判断错误）
         if (visited[x][y]) return 1;
         // 3、最后再判断颜色是否在范围内
         if (Math.abs(image[x][y] - oldColor) > threshold) return 0;
