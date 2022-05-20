@@ -102,6 +102,7 @@ public class BFPRT {
                 small++;
                 // If the element value of pivot was found before. Before swap, arr[small] = pivot, arr[small + equal] > pivot
                 if (equal > 0) swap(arr, small, small + equal);
+                // Now, arr[small] > pivot, so swap them
                 swap(arr, small, i);
             } else if (arr[i] == pivot) {
                 equal++;
