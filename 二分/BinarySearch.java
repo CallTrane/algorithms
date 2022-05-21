@@ -67,6 +67,7 @@ public class BinarySearch {
         }
         // 检查出界情况（此时 left == right）, target 比所有数都小
         if (right <= 0 || nums[right - 1] != target) return NOT_FOUND;
+        // 如果找到值，应该返回 left(right) - 1，因为当我们找到target时，我们对left的更新是 left = mid + 1
         return right - 1;
     }
 
