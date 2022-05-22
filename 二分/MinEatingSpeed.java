@@ -14,14 +14,15 @@ public class MinEatingSpeed {
         int left = 1, right = Arrays.stream(piles).max().getAsInt() + 1;
         while (left < right) {
             int mid = left + ((right - left) >> 1);
-            if (f(mid, piles) == h)
+            int curHour = f(mid, piles);
+            if (curHour == h)
                 // 搜索左侧边界
                 right = mid;
             // 如果需要的时间太少，则需要减少速度x，让f(x)的返回值大一些
-            else if (f(mid, piles) < h)
+            else if (curHour < h)
                 right = mid;
             // 如果需要的时间太多，则需要提高速度x，让f(x)的返回值小一些
-            else if (f(mid, piles) > h)
+            else if (curHour > h)
                 left = mid + 1;
         }
         return left;
