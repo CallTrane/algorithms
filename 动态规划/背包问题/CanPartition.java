@@ -1,3 +1,5 @@
+package 动态规划.背包问题;
+
 /**
  * @className: CanPartition
  * @description: 416. 分割等和子集
@@ -11,7 +13,7 @@ public class CanPartition {
         if (sum % 2 != 0) return false;
         sum /= 2;
         // int[][] dp = new dp[n + 1][sum + 1];
-        // dp[i][j] : 对于前 i 个物品，当前背包的容量为 j 时，若 x 为 true，则说明可以恰好将背包装满, 否则为false
+        // dp[i][j] : 对于前 i 个物品，当前背包的容量为 j 时，若恰好将背包装满, 则dp[i][j] = true, 否则为false
         // dp[i][j] = dp[i - 1][j] (这个不拿) || dp[i - 1][j - val[i]] (这个拿)
         // 为什么是 || , 因为取决于你要不要把这个数字当作子集，只要二者有一个满足即可
         boolean[] dp = new boolean[sum + 1]; // 只与前一个状态有关，降维
