@@ -92,7 +92,7 @@ public class MinCostConnectPoints {
         // 根据权重从小到大排序
         Collections.sort(edges, Comparator.comparingInt(i -> i[2]));
         // 执行 Kruskal 算法
-        DisjointSet disjointSet = new DisjointSet(points.length);
+        图.DisjointSet disjointSet = new 图.DisjointSet(points.length);
         int res = 0;
         for (int[] edge : edges) {
             int u = edge[0], v = edge[1];
@@ -103,12 +103,12 @@ public class MinCostConnectPoints {
         return res;
     }
 
-    class DisjointSet {
+    class 图.DisjointSet {
         private int[] parent;
         private int[] depth;
         private int count;
 
-        public DisjointSet(int n) {
+        public 图.DisjointSet(int n) {
             this.count = n;
             this.parent = new int[n];
             this.depth = new int[n];
