@@ -75,7 +75,7 @@ public class MinimumCost {
     // ========================= Kruskal 解法 =========================
 
     /*public int minimumCost(int n, int[][] connections) {
-        DisjointSet disjointSet = new DisjointSet(n + 1);
+        图.DisjointSet disjointSet = new 图.DisjointSet(n + 1);
         // 先按照权重从小到大排序，下面一步步从小到大连通
         Arrays.sort(connections, Comparator.comparingInt(i -> i[2]));
         int cost = 0;
@@ -89,12 +89,12 @@ public class MinimumCost {
         return disjointSet.getCount() == 2 ? cost : -1;
     }
 
-    class DisjointSet {
+    class 图.DisjointSet {
         int[] parent;
         int[] depth;
         int count;
 
-        public DisjointSet(int n) {
+        public 图.DisjointSet(int n) {
             this.count = n;
             this.parent = new int[n];
             this.depth = new int[n];
