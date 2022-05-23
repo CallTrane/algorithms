@@ -1,3 +1,5 @@
+package 图;
+
 /**
  * @className: DisjointSet
  * @description: 不相交集合（并查集）
