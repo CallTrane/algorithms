@@ -46,7 +46,7 @@ public class FindRotateSteps {
                 }
             }
         }
-        // 比较每个转盘位置得到 key 全部字符，最少的操作数
+        // 比较转盘每个位置得到 key 全部字符，最少的操作数
         int ret = Integer.MAX_VALUE;
         for (int i = 0; i < m; i++) ret = Math.min(ret, dp[i][n - 1]);
         return ret;
