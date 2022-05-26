@@ -1,3 +1,5 @@
+package 前缀和;
+
 /**
  * @className: NumMatrix
  * @description: 304. 二维区域和检索 - 矩阵不可变
