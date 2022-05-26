@@ -1,3 +1,5 @@
+package 前缀和;
+
 /**
  * @className: NumArray
  * @description: 303. 区域和检索 - 数组不可变
