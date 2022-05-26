@@ -1,3 +1,5 @@
+package 树.字典树前缀树;
+
 /**
  * @className: WordDictionary
  * @description: 211. 添加与搜索单词 - 数据结构设计
