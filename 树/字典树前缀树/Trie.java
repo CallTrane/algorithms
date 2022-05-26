@@ -1,3 +1,5 @@
+package 树.字典树前缀树;
+
 /**
  * @className: Trie
  * @description: 208. 实现 Trie (前缀树)
