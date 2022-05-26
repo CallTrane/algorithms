@@ -1,3 +1,5 @@
+package 树.字典树前缀树;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class TrieMap<V> {
     // 通配符
     private static final char WILD_CARD = '.';
 
-    // 当前 TrieMap 中键的个数
+    // 当前 树.字典树前缀树.TrieMap 中键的个数
     private int size = 0;
 
     public int size() {
@@ -66,7 +68,7 @@ public class TrieMap<V> {
     }
 
     /**
-     * 辅助函数：向以 node 为根的 Trie 树中插入 key[i..]，返回插入完成后的根节点
+     * 辅助函数：向以 node 为根的 树.字典树前缀树.Trie 树中插入 key[i..]，返回插入完成后的根节点
      *
      * @param node   前缀（树枝）
      * @param length 长度
@@ -102,7 +104,7 @@ public class TrieMap<V> {
     }
 
     /**
-     * 辅助函数 : 在以 node 为根的 Trie 树中删除 key[i..]，返回删除后的根节点
+     * 辅助函数 : 在以 node 为根的 树.字典树前缀树.Trie 树中删除 key[i..]，返回删除后的根节点
      *
      * @param node   前缀（树枝）
      * @param length 长度
@@ -145,7 +147,7 @@ public class TrieMap<V> {
     }
 
     /**
-     * 判断 key 是否存在 TrieMap 中
+     * 判断 key 是否存在 树.字典树前缀树.TrieMap 中
      *
      * @param key 键
      */
@@ -234,7 +236,7 @@ public class TrieMap<V> {
      * 通配符. 匹配任意字符
      * 判断是否存在匹配的键
      * <p>
-     * For example : if TrieMap has the key for zip <br>
+     * For example : if 树.字典树前缀树.TrieMap has the key for zip <br>
      * hasKeyWithPattern(".ip") -> true <br>
      * hasKeyWithPattern(".i") -> false
      * </P>
@@ -274,7 +276,7 @@ public class TrieMap<V> {
             char c = query.charAt(i);
             p = p.children[c];
         }
-        // 最后一次判断 : query本身是不是键 （Trie 树中「树枝」存储字符串，「节点」存储字符串对应的值，for 循环相当于只遍历了「树枝」，但漏掉了最后一个「节点」）
+        // 最后一次判断 : query本身是不是键 （树.字典树前缀树.Trie 树中「树枝」存储字符串，「节点」存储字符串对应的值，for 循环相当于只遍历了「树枝」，但漏掉了最后一个「节点」）
         if (p != null && p.value != null) return query;
         return "";
     }
@@ -294,7 +296,7 @@ public class TrieMap<V> {
             char c = query.charAt(i);
             p = p.children[c];
         }
-        // 最后一次判断 : query本身是不是键 （Trie 树中「树枝」存储字符串，「节点」存储字符串对应的值，for 循环相当于只遍历了「树枝」，但漏掉了最后一个「节点」）
+        // 最后一次判断 : query本身是不是键 （树.字典树前缀树.Trie 树中「树枝」存储字符串，「节点」存储字符串对应的值，for 循环相当于只遍历了「树枝」，但漏掉了最后一个「节点」）
         if (p != null && p.value != null) return query;
         return query.substring(0, maxLength);
     }
@@ -302,7 +304,7 @@ public class TrieMap<V> {
 }
 
 class TrieSet {
-    // 底层用一个 TrieMap，键就是 TrieSet，值仅仅起到占位的作用
+    // 底层用一个 树.字典树前缀树.TrieMap，键就是 树.字典树前缀树.TrieSet，值仅仅起到占位的作用
     // 值的类型可以随便设置，参考 Java 标准库设置成 Object
     private final TrieMap<Object> map = new TrieMap<>();
 
