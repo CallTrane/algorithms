@@ -56,7 +56,7 @@ public class Dijkstra {
             if (curNodeDistFromStart > distTo[curNodeId]) continue;
             // 否则, 通过 curNode 节点, 计算到相邻节点的距离会不会更短
             for (int nextNodeId : adj(curNodeId)) {
-                int nextNodeDistFromStart = curNodeDistFromStart + weight(nextNodeId, curNodeId);
+                int nextNodeDistFromStart = distTo[curNodeId] + weight(curNodeId, nextNodeId);
                 // 如果距离可以更短, 则更新 dp table 且入队
                 if (nextNodeDistFromStart < distTo[nextNodeId]) {
                     distTo[nextNodeId] = nextNodeDistFromStart;
