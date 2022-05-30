@@ -54,7 +54,7 @@ public class Dijkstra {
             int curNodeId = curNode.id, curNodeDistFromStart = curNode.distFromStart;
             // 已经有一条更短的路径到达 curNode 节点了
             if (curNodeDistFromStart > distTo[curNodeId]) continue;
-            // 否则, 通过 curNode 节点, 计算到相邻节点的距离会不会更短
+            // 否则, 只知道当前节点更近还不足够, 需要通过 curNode 节点, 计算到相邻节点的距离会不会更短
             for (int nextNodeId : adj(curNodeId)) {
                 int nextNodeDistFromStart = distTo[curNodeId] + weight(curNodeId, nextNodeId);
                 // 如果距离可以更短, 则更新 dp table 且入队
