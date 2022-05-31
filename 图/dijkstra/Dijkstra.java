@@ -8,6 +8,7 @@ import java.util.PriorityQueue;
 /**
  * @className: Dijkstra
  * @description: Dijkstra's algorithm : 解决的是带权重(非负值)的有向图上单源最短路径问题
+ *               如果路径中每增加一条边，路径的总权重就会减少，要是能够满足这个条件，也可以用 Dijkstra 算法
  * @author: Carl Tong
  * @date: 2022/5/26 16:41
  */
