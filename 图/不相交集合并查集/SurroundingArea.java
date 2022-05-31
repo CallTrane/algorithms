@@ -30,11 +30,9 @@ public class SurroundingArea {
         }
 
         public int findSet(int x) {
-            while (nodes[x] != x) {
-                nodes[x] = nodes[nodes[x]];
-                x = nodes[x];
-            }
-            return x;
+            if (nodes[x] != x)
+                nodes[x] = findSet(nodes[x]);
+            return nodes[x];
         }
 
         public boolean isConnected(int x, int y) {
