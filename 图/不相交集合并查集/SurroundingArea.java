@@ -1,3 +1,5 @@
+package 图.不相交集合并查集;
+
 /**
  * @className: SurroundingArea
  * @description: 130. 被围绕的区域
