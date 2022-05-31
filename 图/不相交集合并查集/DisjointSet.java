@@ -1,4 +1,4 @@
-package 图;
+package 图.不相交集合并查集;
 
 /**
  * @className: DisjointSet
