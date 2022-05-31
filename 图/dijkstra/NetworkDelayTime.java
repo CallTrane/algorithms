@@ -1,4 +1,4 @@
-package 图;
+package 图.dijkstra;
 
 import java.util.*;
 
