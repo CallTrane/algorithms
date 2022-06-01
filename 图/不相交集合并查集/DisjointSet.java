@@ -36,10 +36,10 @@ public class DisjointSet {
 
     /**
      * FIND-SET(x) : 找到结点x所在集合中的代表（相当于找这棵树的根节点）
-     * 所有树高 <= 2
+     * 所有树高 <= 2 （在union的时候可能到达3）
      */
     public int findSet(int x) {
-        // 直接把该集合所有节点接到根节点下面, 拍平, 此时深度为2
+        // 直接把该集合所有节点接到根节点下面, 拍平, 此时树深度为2
         if (nodes[x] != x)
             nodes[x] = findSet(nodes[x]);
         return nodes[x];
