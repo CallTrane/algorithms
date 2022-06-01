@@ -6,7 +6,8 @@ import java.util.List;
 
 /**
  * @className: Kruskal
- * @description: 最小生成树   1.包含图中的所有节点; 2.形成的结构是树结构(即不存在环); 3.权重和最小
+ * @description: Kruskal最小生成树
+ *               1.包含图中的所有节点; 2.形成的结构是树结构(即不存在环); 3.权重和最小
  * @author: Carl Tong
  * @date: 2022/6/1 1:03
  */
