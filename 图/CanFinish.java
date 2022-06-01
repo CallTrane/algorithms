@@ -1,4 +1,4 @@
-package 图.拓扑排序;
+package 图;
 
 import java.util.LinkedList;
 import java.util.List;
