@@ -17,7 +17,7 @@ public class Prim {
     对于任意一种「切分」，其中权重最小的那条「横切边」一定是构成最小生成树的一条边。为了让最终这棵生成树的权重和最小选权重最小的那条「横切边」
     使用优先队列, 选择最小的一条边
      */
-    // 三元组 int[]{from, to, weight} 表示一条边
+    // 三元组 int[]{from, to, weight} 表示一条边, (graph 是用邻接表表示的一幅图, graph[s] 记录节点 s 所有相邻的边)
     public int prim(int n, List<int[]>[] graph) {
         // 类似 visited 数组的作用，记录哪些节点已经成为最小生成树的一部分, 防止重复计算横切边(例如 cut({A, B}) 的横切边和 cut({C}) 的横切边中 BC 边重复了)
         boolean[] inMST = new boolean[n];
