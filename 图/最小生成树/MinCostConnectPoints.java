@@ -127,11 +127,8 @@ public class MinCostConnectPoints {
                 inMST[to] = true;
                 mst += weight;
             }
-            // 遍历节点
-            for (int i = 0; i < inMST.length; i++)
-                // 如果有节点不在最小生成树中, 则返回-1失败
-                if (!inMST[i]) return -1;
-            return mst;
+            // 是否所有节点已经在最小生成树中, 如果不是返回 -1
+            return isAllConnected(inMST) ? mst : -1;
         }
 
         // 切分, 同时把邻边放入优先队列里(已经在最小生成树的节点跳过, 防止重复)
@@ -141,6 +138,13 @@ public class MinCostConnectPoints {
                 if (inMST[to]) continue;
                 pq.offer(edge);
             }
+        }
+
+        // 遍历节点, 是否所有节点已经在最小生成树
+        private static boolean isAllConnected(boolean[] inMST) {
+            for (int i = 0; i < inMST.length; i++)
+                if (!inMST[i]) return false;
+            return true;
         }
     }
 }
