@@ -53,6 +53,8 @@ public class Dijkstra {
         while (!pq.isEmpty()) {
             Node curNode = pq.poll();
             int curNodeId = curNode.id, curNodeDistFromStart = curNode.distFromStart;
+            // 如果是可以判断判断终点, 可以这么写 (因为是最小优先队列, 第一次遇到 end 就是最小路径了)
+            // if (curNodeId == end) return curNodeDistFromStart;
             // 已经有一条更短的路径到达 curNode 节点了
             if (curNodeDistFromStart > distTo[curNodeId]) continue;
             // 否则, 只知道当前节点更近还不能更新, 需要通过 curNode 节点, 计算到相邻节点的距离会不会更短
