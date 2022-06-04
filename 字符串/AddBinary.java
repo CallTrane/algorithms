@@ -1,3 +1,5 @@
+package 字符串;
+
 /**
  * @className: AddBinary
  * @description: 剑指 Offer II 002. 二进制加法
