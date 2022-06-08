@@ -1,4 +1,4 @@
-package 数组;
+package 数组.差分数组;
 
 /**
  * @className: DifferenceArray
